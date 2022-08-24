@@ -4,7 +4,7 @@
             { url: `/artists/${artist.id}` }) %>
 <% if (songsByArtist.length > 0) { %>
   <h2>Songs By Artist</h2>
-  <% songsByArtist.forEach(songs => { %>
+  <% songsByArtist.forEach(song => { %>
     <a href="/songs/<%= song.id %>">
       <img height="150" width="100" src="<%= song.coverImagePath %>">
     </a>
