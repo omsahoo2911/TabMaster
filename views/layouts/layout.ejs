@@ -7,15 +7,47 @@
   <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
   <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
   <script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+  <script defer src="https://unpkg.com/filepond-plugin-pdf-preview/dist/filepond-plugin-pdf-preview.min.js"></script>
+  <script>
+    
+        // Register the plugin with FilePond
+        FilePond.registerPlugin(FilePondPluginPdfPreview);
+
+        // Get a reference to the file input element
+        const inputElement = document.querySelector('input[type="file"]');
+
+        // Create the FilePond instance
+        const pond = FilePond.create(inputElement);
+        document.body.appendChild(pond.element);
+
+
+        //you can specify the params to this plugin if you want override 
+        //the defaults, you could do it here in the javascript  
+        //or with the 'data-' atributes in the html tag
+        /*const pond = FilePond.create(inputElement,{
+             allowPdfPreview: true,
+             pdfPreviewHeight: 320,
+             pdfComponentExtraParams: 'toolbar=0&view=fit&page=1'            
+          });         
+        // */
+    
+  </script>
   <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
   <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
   <script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>
   <script defer src="/javascripts/fileUpload.js"></script>
   <title>Mybrary</title>
+  <style>
+      #tabPDF {
+        width: 85%;
+        height: 975px;
+      }
+  </style>
 </head>
 <body>
   <%- include('../partials/header.ejs') %>
   <%- include('../partials/errorMessage.ejs') %>
   <%- body %>
+  
 </body>
 </html>
