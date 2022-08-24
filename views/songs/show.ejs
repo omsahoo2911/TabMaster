@@ -1,0 +1,13 @@
+<h2><%= song.title %></h2>
+<img width="100" height="150" src="<%= song.coverImagePath %>">
+<iframe width="560" height="315" src="<%= song.ytURL %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe id="tabPDF" src="<%= song.coverImagePath %>" frameborder="0"></iframe>
+<div>Artist: <%= song.artist.name %></div>
+<div>Publish Date: <%= song.publishDate.toDateString() %></div>
+<div>Page Count: <%= song.pageCount %></div>
+<div>YT: <%= song.ytURL %></div>
+<div>Description: <%= song.description %></div>
+
+<a href="/songs/<%= song.id %>/edit">Edit</a>
+<%- include('../partials/deleteForm', { url: `/songs/${song.id}` }) %>
+<a href="/artists/<%= song.artist.id %>">View Artist</a>
